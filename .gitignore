@@ -1,2 +1,2 @@
 /node_modules
-/src/secret
+/src/secret/index.js

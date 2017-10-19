@@ -1,0 +1,1 @@
+This folder contains API keys and other data I would rather not share with the world.
