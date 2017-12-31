@@ -54,8 +54,15 @@ function handleDone() {
   activePlayer.dice.held = [];
   activePlayer.dice.stash = [];
   activePlayer.dice.stashScore = 0;
-  state.activePlayer = +!state.activePlayer;    
-  handleRoll();
+
+  if (activePlayer.score >= 5000) {
+    console.log(`${activePlayer.name} wins!`);
+    handleQuit();
+  }
+  else {
+    state.activePlayer = +!state.activePlayer;
+    handleRoll();
+  }
 }
 
 function displayInfo() {
