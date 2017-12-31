@@ -1,3 +1,3 @@
 module.exports = function showInstructions() {
-  console.log(`[R]oll or [P]ass?`)
+  console.log(`[R]oll or [D]one?`)
 }

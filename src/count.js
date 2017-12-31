@@ -35,9 +35,27 @@ function countRemainingOnesAndFives(dice) {
   return ~~hashMap[1] * 100 + ~~hashMap[5] * 50
 }
 
-module.exports = function countPoints(dice) {
+function countRolled(dice) {
   if (yahtzee(dice)) return 5000
   if (sequence(dice)) return 2000
   if (threePairs(dice)) return 1200
   return tripletScore(dice) + countRemainingOnesAndFives(dice)
+}
+
+function noOnesOrFives(dice) {
+  return _.pullAll(dice, [1, 5]);
+}
+
+function countHeld(dice) {
+  if (yahtzee(dice)) return 5000
+  if (sequence(dice)) return 2000
+  if (threePairs(dice)) return 1200
+  if (!noOnesOrFives(noTriplets(dice)).length) return tripletScore(dice) + countRemainingOnesAndFives(dice)
+  return 0
+}
+
+
+module.exports = {
+  countRolled,
+  countHeld
 }
